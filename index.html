@@ -11,7 +11,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>Reseller Kec. Sumberejo | PT. Megarap Mitra Solusi</title>
+    <script language='JavaScript'>
+var txt="Reseller Kec. Sumberejo | PT. Megarap Mitra Solusi | ";
+var speed=300;
+var refresh=null;
+function action() { document.title=txt;
+txt=txt.substring(1,txt.length)+txt.charAt(0);
+refresh=setTimeout("action()",speed);}action();
+</script>
 
 <!-- Favicon -->
     <link rel="shortcut icon" href="https://mms.net.id/assets/favicon.png" type="image/x-icon" />
