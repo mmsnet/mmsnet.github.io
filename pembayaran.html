@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>MMSNET.ID</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f3f4f6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(to right, #2563eb, #1d4ed8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .underline {
+            width: 80px;
+            height: 4px;
+            background-color: #2563eb;
+            border-radius: 5px;
+            margin: 0 auto 30px auto;
+        }
+        .button {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .button img {
+            height: 70px;
+            width: auto;
+        }
+        .button:hover {
+            background-color: #1d4ed8;
+        }
+        .payment-info {
+            max-height: 0;
+            overflow: hidden;
+            background-color: #f9fafb;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 15px;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+            padding: 0 20px;
+        }
+        .payment-info.show {
+            max-height: 500px;
+            padding: 15px 20px;
+        }
+        .payment-info img.qris-img {
+            width: 200px;
+            margin-top: 10px;
+            border-radius: 8px;
+        }
+        .center {
+            text-align: center;
+        }
+        .copy-button {
+            margin-top: 10px;
+            padding: 8px 14px;
+            background-color: #10b981;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .copy-button:hover {
+            background-color: #059669;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Pilih Metode Pembayaran<br>MMSNET.ID</h2>
+    <div class="underline"></div>
+
+    <button class="button" onclick="toggleInfo('mandiri')">
+        <img src="https://mmsnet.id/assets/images/BRI.png" alt="Mandiri">
+        Transfer Bank BRI
+    </button>
+    <div id="mandiri" class="payment-info">
+        No. Rekening: <strong id="mandiriRek">705501018350538</strong><br>
+        a.n. <strong>MUHAMMAD AFRIZAL MUSTOFA</strong><br>
+        <button class="copy-button" onclick="copyToClipboard('mandiriRek')">Salin Nomor Rekening</button>
+    </div>
+
+    <button class="button" onclick="toggleInfo('bni')">
+        <img src="https://mmsnet.id/assets/images/DANA.png" alt="BNI">
+        Transfer DANA
+    </button>
+    <div id="bni" class="payment-info">
+        No. Rekening: <strong id="bniRek">082280550023</strong><br>
+        a.n. <strong>MUHAMMAD AFRIZAL MUSTOFA</strong><br>
+        <button class="copy-button" onclick="copyToClipboard('bniRek')">Salin Nomor Rekening</button>
+    </div>
+
+    <button class="button" onclick="toggleInfo('qris')">
+        <img src="https://mmsnet.id/assets/images/QRIS.png" alt="QRIS">
+        Pembayaran via QRIS
+    </button>
+    <div id="qris" class="payment-info">
+        <p>Scan kode QR berikut dengan aplikasi e-wallet atau mobile banking Anda:</p>
+        <div class="center">
+            <img src="https://mmsnet.id/assets/images/QRIS.jpg" class="qris-img" alt="QRIS">
+        </div>
+        a.n. <strong>MMS NET</strong>
+    </div>
+</div>
+
+<script>
+    function toggleInfo(id) {
+        const el = document.getElementById(id);
+        el.classList.toggle("show");
+    }
+
+    function copyToClipboard(elementId) {
+        const text = document.getElementById(elementId).innerText;
+        navigator.clipboard.writeText(text).then(function () {
+            alert("Nomor rekening berhasil disalin!");
+        }, function () {
+            alert("Gagal menyalin. Silakan salin secara manual.");
+        });
+    }
+</script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"90482074c4064a8b92652f6242996fcb","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
